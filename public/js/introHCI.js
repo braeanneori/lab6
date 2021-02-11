@@ -10,21 +10,26 @@ $(document).ready(function() {
  */
 function initializePage() {
 	$('.project a').click(addProjectDetails);
-
 	// $('#colorBtn').click(randomizeColors);
 }
 
 /*
  * Make an AJAX call to retrieve project details and add it in
  */
+function callBackFn() {
+	
+}
+
 function addProjectDetails(e) {
 	// Prevent following the link
 	e.preventDefault();
-
+	$.get("http://URL", callBackFn);
 	// Get the div ID, e.g., "project3"
 	var projectID = $(this).closest('.project').attr('id');
 	// get rid of 'project' from the front of the id 'project3'
 	var idNumber = projectID.substr('project'.length);
+
+	$(".details", projectID).html(foo);
 
 	console.log("User clicked on project " + idNumber);
 }
